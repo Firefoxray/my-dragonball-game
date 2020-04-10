@@ -22,18 +22,12 @@ public class GameMap extends TiledMap {
 
     //
     public static TiledMap tiledMap;
-    public static org.mini2Dx.tiled.TiledMap tiledMapMini2D;
     public static TiledMapRenderer tiledMapRenderer;
     public static TiledMapTileLayer tileLayer;
     public static TiledMapTileLayer.Cell cell;
-    public static TiledMapTileLayer.Cell positionCell;
     public static OrthographicCamera camera;
     public static int posX;
     public static int posY;
-    public static TiledMapTile positionTile;
-
-
-
 
     //MapLayers
     public static MapLayer groundLayer;
@@ -54,33 +48,11 @@ public class GameMap extends TiledMap {
         camera.setToOrtho(false,w,h);
         camera.update();
         tiledMap = new TmxMapLoader().load("maps/test4.tmx");
-
         tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
-
         int mapWidth = tiledMap.getProperties().get("width",Integer.class);
         int mapHeight = tiledMap.getProperties().get("height",Integer.class);
-        //.playerPoint.set(mapWidth,mapHeight);
-
         tileLayer = new TiledMapTileLayer(mapWidth,mapHeight,32,32);
         cell = new TiledMapTileLayer.Cell();
-
-        //tileLayer.setCell(posX,posY,cell);
-
-
-
-        //groundLayer = tiledMap.getLayers().get(0);
-        //collObjectLayer = tiledMap.getLayers().get(1);
-        //topLayer = tiledMap.getLayers().get(2);
-
-
-        //tiledMap.getLayers().remove(topLayer);
-        //tiledMap.getLayers().remove(groundLayer);
-        //tiledMap.getLayers().remove(collObjectLayer);
-
-
-
-
-
     }
     public void update(){
 
@@ -130,13 +102,9 @@ public class GameMap extends TiledMap {
         tiledMapRenderer.setView(camera);
         animationEngine.spriteBatch.setProjectionMatrix(camera.combined);
 
-        //cell.setTile(new StaticTiledMapTile(animationEngine.currentFrame));
         tiledMapRenderer.render();
         animationEngine.render(g);
 
-        //tiledMap.getLayers().add(groundLayer);
-        //tiledMap.getLayers().add(collObjectLayer);
-        //tiledMap.getLayers().add(topLayer);
     }
 
     public void dispose(){
