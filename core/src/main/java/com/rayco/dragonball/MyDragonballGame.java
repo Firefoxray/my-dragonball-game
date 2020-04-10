@@ -3,15 +3,9 @@ package com.rayco.dragonball;
 import com.rayco.dragonball.players.PlayerInit;
 import org.mini2Dx.core.game.BasicGame;
 import org.mini2Dx.core.graphics.Graphics;
-import org.mini2Dx.tiled.TiledMap;
 
 public class MyDragonballGame extends BasicGame {
 	public static final String GAME_IDENTIFIER = "com.rayco.dragonball";
-
-	//Init
-
-	//Sprites
-    public TiledMap tiledMap;
 
     //Class Init
     AnimationEngine animationEngine;
@@ -46,6 +40,5 @@ public class MyDragonballGame extends BasicGame {
     @Override
     public void dispose(){
 	    animationEngine.dispose();
-	    tiledMap.dispose();
     }
 }
