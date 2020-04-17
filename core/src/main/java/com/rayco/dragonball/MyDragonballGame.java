@@ -1,5 +1,6 @@
 package com.rayco.dragonball;
 
+import com.rayco.dragonball.actions.attacks.Attacks;
 import com.rayco.dragonball.players.PlayerInit;
 import org.mini2Dx.core.game.BasicGame;
 import org.mini2Dx.core.graphics.Graphics;
@@ -12,6 +13,7 @@ public class MyDragonballGame extends BasicGame {
     PlayerInit playerInit;
     Controls controls;
     GameMap gameMap;
+    public static Attacks attacks;
 
 	@Override
     public void initialise() {
@@ -19,12 +21,14 @@ public class MyDragonballGame extends BasicGame {
         animationEngine = new AnimationEngine();
         controls = new Controls();
         gameMap = new GameMap();
+        attacks = new Attacks();
     }
     
     @Override
     public void update(float delta) {
      controls.update();
      playerInit.update();
+     attacks.update();
     }
     
     @Override

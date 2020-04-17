@@ -1,11 +1,8 @@
 package com.rayco.dragonball.players;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.rayco.dragonball.AnimationEngine;
 import org.mini2Dx.core.engine.geom.CollisionPoint;
-
-import javax.xml.soap.Text;
 
 public class PlayerInit {
 
@@ -24,6 +21,7 @@ public class PlayerInit {
     public static int PLAYER_NUM = 0;
     public static final int GOKU = 0;
     public static final int VEGETA = 1;
+    public static String playerKiAttackSheet;
 
     public PlayerInit(){
         playerPoint = new CollisionPoint();
@@ -39,9 +37,10 @@ public class PlayerInit {
         playerPoint.preUpdate();
     }
 
-    public static void gokuInit(boolean currPlayer, String gokuBase, String gokuWalkSheet){
+    public static void gokuInit(boolean currPlayer, String gokuBase, String gokuWalkSheet, String kiAttackSheet){
         if(currPlayer){
             currentPlayer(gokuBase, gokuWalkSheet);
+            playerKiAttackSheet = kiAttackSheet;
         }
     }
 

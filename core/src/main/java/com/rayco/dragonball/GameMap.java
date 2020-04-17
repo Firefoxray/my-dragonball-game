@@ -4,19 +4,10 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.maps.MapLayer;
-import com.badlogic.gdx.maps.MapObjects;
-import com.badlogic.gdx.maps.MapProperties;
-import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.*;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
-import com.badlogic.gdx.math.Intersector;
-import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.math.Vector3;
 import com.rayco.dragonball.players.PlayerInit;
 import org.mini2Dx.core.graphics.Graphics;
-import org.mini2Dx.tiled.collisions.TiledCollisionMapper;
-
-import java.awt.*;
 
 public class GameMap extends TiledMap {
 
@@ -60,6 +51,8 @@ public class GameMap extends TiledMap {
 
     public static boolean isCellBlocked(float a, float b, String direction){
         boolean isBlocked = false;
+
+
         int checkX = (Math.round(a) / 32);
         int checkY = (Math.round(b) / 32);
 

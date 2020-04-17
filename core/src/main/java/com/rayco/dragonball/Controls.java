@@ -2,6 +2,9 @@ package com.rayco.dragonball;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.utils.Timer;
+import com.rayco.dragonball.actions.attacks.Attacks;
+import com.rayco.dragonball.actions.attacks.KiBlast;
 
 import static com.rayco.dragonball.players.PlayerInit.playerPoint;
 
@@ -15,10 +18,12 @@ public class Controls {
 
     //Movement Speeds
     public static float walk = 0.15f;
+    public static int walkSpeed = 4;
 
     //Class Init
     public static AnimationEngine animationEngine;
     public static GameMap gameMap;
+    public static Attacks attacks;
 
     //Obj Init
     public static int pointX;
@@ -26,7 +31,7 @@ public class Controls {
     public static int lastDir = 0;
 
     public Controls(){
-
+        attacks = new Attacks();
     }
 
 
@@ -43,6 +48,7 @@ public class Controls {
         boolean isLeftPresed = Gdx.input.isKeyPressed(Input.Keys.LEFT);
         boolean isUpPresed = Gdx.input.isKeyPressed(Input.Keys.UP);
         boolean isDownPresed = Gdx.input.isKeyPressed(Input.Keys.DOWN);
+        boolean isSpacePressed = Gdx.input.isKeyPressed(Input.Keys.SPACE);
         boolean isNum1Pressed = Gdx.input.isKeyPressed(Input.Keys.NUM_1);
         boolean isNum2Pressed = Gdx.input.isKeyPressed(Input.Keys.NUM_2);
         boolean isNum3Pressed = Gdx.input.isKeyPressed(Input.Keys.NUM_3);
@@ -52,6 +58,17 @@ public class Controls {
         if (!isButtonPressed){
             animationEngine.walkAnimation(100f,lastDir);
             //System.out.println(lastDir);
+        }
+
+        if (isSpacePressed){
+            float delay = 1; //seconds
+            attacks.kiBlast();
+            Timer.schedule(new Timer.Task() {
+                @Override
+                public void run() {
+
+                }
+            }, delay);
         }
 
         if (isRightPresed){

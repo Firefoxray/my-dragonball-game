@@ -15,15 +15,16 @@ public class Goku extends PlayerInit{
 
     //Texture Locations
     public static String gokuBase = "gokuBaseWalking/gokuBase.png";
-    Texture gokuSSJ;
     public static String walkSheet = "gokuBaseWalking/gokuWalkingSpriteSheet.png";
+    public static String kiAttackSheet = "gokuBaseKiAttack/gokuBaseKiAttack.png";
 
+    public static String gokuSSJ;
     //Class Init
     public static PlayerInit playerInit;
 
 
     public static void init(){
-        playerInit.gokuInit(isCurrentPlayer,gokuBase, walkSheet);
+        playerInit.gokuInit(isCurrentPlayer,gokuBase, walkSheet, kiAttackSheet);
     }
 
     public void movement(){
